@@ -1,25 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import FacebookLogin from 'react-facebook-login';
+import Wizard from './Wizard'
+
+import './App.scss';
+
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      loggedIn: false,
+      picture: ''
+    }
+  }
+
+  responseFacebook = response => {
+    console.log(response);
+    if (response.name) {
+      this.setState({
+        loggedIn: true,
+        picture: response.picture.data.url
+      })
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <header className={this.state.loggedIn ? "logged-in" : ''}>
+          <div className="colors"></div>
+          <p>Guess</p>
+          <p>Babyto's</p>
+          <p>Gender!</p>
+          {this.state.picture && <img src={this.state.picture} alt="" className="picture" />}
         </header>
+        {!this.state.loggedIn ? <FacebookLogin
+          appId="241944436505485"
+          autoLoad={true}
+          fields="name,email,picture"
+          // onClick={componentClicked}
+          callback={this.responseFacebook}
+        />
+          :
+          <Wizard />}
       </div>
     );
   }

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+* {
+  margin:0;
+  padding:0;
+}
+
+.App {
+  text-align: center;
+  animation: fadeIn 2s;
+}
+
+header {
+  width:100vw;
+  font-family: 'Open Sans', sans-serif;
+  p {
+    text-shadow: 1px 1px 5px #ccc;
+  }
+  p:nth-child(2) {
+    margin-top:50px;
+    transform: translateX(-50px);
+    font-size: 50px;
+    line-height: 50px;
+    transition: 1s;
+  }
+  p:nth-child(3) {
+    font-size: 35px;
+    line-height: 35px;
+    transition: 1s;
+  }
+  p:nth-child(4) {
+    transform: translateX(45px);
+    font-size: 30px;
+    transition: 1s;
+  }
+  .colors,.colors:after {
+    content:" ";
+    display:inline-block;
+    height:75px;
+    width:100%;
+  }
+  .colors {
+    background:linear-gradient(to right, #2496EF,#fff);
+    position: absolute;
+    transform: skewY(40deg);
+    top:25%;
+    left:0;
+  }
+  .colors:after {
+    background:linear-gradient(to right, #EA3869,#fff);
+    transform: translateY(75px);
+  }
+  .picture {
+    position: absolute;
+    height: 60px;
+    top: 0px;
+    right: 0px;
+    border-bottom-left-radius: 50%;
+    animation:fadeIn 1s;
+  }
+  .name {
+    position: absolute;
+    top: 30px;
+    right: 70px;
+    border-radius: 50%;
+    animation:fadeIn 1s;
+  }
+}
+
+header.logged-in {
+  width:100vw;
+  font-family: 'Open Sans', sans-serif;
+  p:nth-child(2) {
+    margin-top:75px;
+    transform: translateX(-50px);
+    font-size: 25px;
+    line-height: 25px;
+    transition: 1s;
+  }
+  p:nth-child(3) {
+    transform: translateX(0px);
+    font-size: 30px;
+    line-height: 30px;
+    transition: 1s;
+  }
+  p:nth-child(4) {
+    transform: translateX(45px);
+    font-size: 25px;
+    transition: 1s;
+  }
+  .colors,.colors:after {
+    content:" ";
+    display:inline-block;
+    height:75px;
+    width:100%;
+  }
+  .colors {
+    background:linear-gradient(to right, #2496EF,#fff);
+    position: absolute;
+    transform: skewY(40deg);
+    top:50px;
+    left:0;
+    transition: 1s;
+  }
+  .colors:after {
+    background:linear-gradient(to right, #EA3869,#fff);
+    transform: translateY(75px);
+  }
+}
+
+.kep-login-facebook {
+  position: absolute;
+  width:300px;
+  transform: translateX(-50%);
+  bottom:50px;
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
